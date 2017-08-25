@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>流浪的晓晓</title>
+		<style type="text/css">
+		    html{
+		    	font-size: 15px;
+		    }
+			body{
+				text-align: center;
+				font-size: 4rem;
+				color: #0ad417;
+			}
+			.img{
+				height: 80rem;
+			}
+		</style>
+	</head>
+	<body>
+		<p class="word">今天是</p>
+		<img class="img" src="girl.jpg"/>
+	</body>
+	<script type="text/javascript">
+	    //8月24是第489天
+	    var sentence = document.getElementsByClassName('word')[0];
+	    var startTime = new Date(2017,7,24,0,0,0),
+	        startTimeMM = startTime.getTime();
+	    var nowTime = new Date,
+	        nowTimeMM = nowTime.getTime(),
+	        year = nowTime.getFullYear(),
+	        month = nowTime.getMonth() + 1,
+	        _date = nowTime.getDate(),
+	        cha = nowTimeMM - startTimeMM,
+	        tian = parseInt( cha / 1000 / 3600 / 24 ) + 489;
+		sentence.innerHTML = '今天是' + year +'年' + month + '月' + _date + '日    ; 晓晓在济州岛流浪第' + tian + '天';
+	</script>
+</html>
