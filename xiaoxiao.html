@@ -1,42 +1,59 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>流浪的晓晓</title>
-		<style type="text/css">
-		    html{
-		    	font-size: 15px;
-		    	height: 100%;
-		    }
-			body{
-				text-align: center;
-				font-size: 4rem;
-				color: #0ad417;
-				height: 100%;
-			}
-			.img{
-				
-				height: 80%;
-			}
-		</style>
-	</head>
-	<body>
-		<p class="word">test</p>
-		<img class="img" src="img/xiao.jpg"/>
-		<audio autoplay="autoplay" src="music/xiaowangge.mp3">你这什么浏览器，居然不支持audio</audio>
-	</body>
-	<script type="text/javascript">
-	    //8月24是第489天
-	    var sentence = document.getElementsByClassName('word')[0];
-	    var startTime = new Date(2017,7,24,0,0,0),
-	        startTimeMM = startTime.getTime();
-	    var nowTime = new Date,
-	        nowTimeMM = nowTime.getTime(),
-	        year = nowTime.getFullYear(),
-	        month = nowTime.getMonth() + 1,
-	        _date = nowTime.getDate(),
-	        cha = nowTimeMM - startTimeMM,
-	        tian = parseInt( cha / 1000 / 3600 / 24 ) + 489;
-		sentence.innerHTML = '今天是' + year +'年' + month + '月' + _date + '日    ; 晓晓在济州岛流浪第' + tian + '天';
-	</script>
+
+<head>
+	<meta charset="UTF-8">
+	<title>流浪的晓晓</title>
+	<style type="text/css">
+		html {
+			font-size: 15px;
+			height: 100%;
+		}
+
+		body {
+			text-align: center;
+			font-size: 4rem;
+			color: #0ad417;
+			height: 100%;
+		}
+
+		.img {
+
+			height: 80%;
+		}
+	</style>
+</head>
+
+<body>
+	<p class="word">test</p>
+	<img class="img" src="img/xiao.jpg" />
+	<audio autoplay="autoplay" src="music/xiaowangge.mp3">你这什么浏览器，居然不支持audio</audio>
+</body>
+<script type="text/javascript">
+	//8月24是第489天
+	var sentence = document.getElementsByClassName('word')[0];
+	var startTime = new Date(2017, 7, 24, 0, 0, 0),
+		startTimeMM = startTime.getTime();
+	var nowTime = new Date,
+		nowTimeMM = nowTime.getTime(),
+		year = nowTime.getFullYear(),
+		month = nowTime.getMonth() + 1,
+		_date = nowTime.getDate(),
+		cha = nowTimeMM - startTimeMM,
+		tian = parseInt(cha / 1000 / 3600 / 24) + 489;
+	sentence.innerHTML = '今天是' + year + '年' + month + '月' + _date + '日    ; 晓晓在济州岛流浪第' + tian + '天';
+
+
+	//2025.5.19 时间已经过去了8年 自动播放的html标准已经修改了 现在只能等手动点击后触发播放
+	var musicPaths = ['music/xiaowangge.mp3', 'music/confessGirlsLove.aac'];
+	// var randomIndex = Math.random() < 0.5 ? 0 : 1;
+	var audio = document.querySelector('audio');
+	audio.src = musicPaths[1];
+
+	window.addEventListener('click', function once() {
+		audio.play().catch(console.error);
+		window.removeEventListener('click', once); // 只执行一次
+	});
+</script>
+
 </html>
