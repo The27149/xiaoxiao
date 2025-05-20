@@ -50,10 +50,12 @@
 	var audio = document.querySelector('audio');
 	audio.src = musicPaths[1];
 
-	window.addEventListener('click', function once() {
+	window.addEventListener('touchend', function once() {
 		audio.play().catch(console.error);
-		window.removeEventListener('click', once); // 只执行一次
+		window.removeEventListener('touchend', once); // 只执行一次
 	});
+
+
 </script>
 
 </html>
