@@ -50,10 +50,14 @@
 	var audio = document.querySelector('audio');
 	audio.src = musicPaths[1];
 
-	window.addEventListener('touchend', function once() {
+	// 同时监听点击和触摸事件，兼容PC和移动端
+	function playAudio() {
 		audio.play().catch(console.error);
-		window.removeEventListener('touchend', once); // 只执行一次
-	});
+		window.removeEventListener('click', playAudio);
+		window.removeEventListener('touchend', playAudio);
+	}
+	window.addEventListener('click', playAudio);
+	window.addEventListener('touchend', playAudio);
 
 
 </script>
